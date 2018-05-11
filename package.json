@@ -5,27 +5,27 @@
       "C:\\Users\\kimi\\Desktop\\work\\czb_rn\\czb_user_iPad"
     ]
   ],
-  "_from": "react-native-image-crop-picker@0.19.1",
+  "_from": "git+https://github.com/andmizi/react-native-image-crop-picker.git",
   "_id": "react-native-image-crop-picker@0.19.1",
   "_inBundle": false,
   "_integrity": "sha1-KayYEEuJ5iNQHVvPR2rah1Z5zOg=",
   "_location": "/react-native-image-crop-picker",
   "_phantomChildren": {},
   "_requested": {
-    "type": "version",
-    "registry": true,
-    "raw": "react-native-image-crop-picker@0.19.1",
+    "type": "git",
+    "raw": "react-native-image-crop-picker@git+https://github.com/andmizi/react-native-image-crop-picker.git",
     "name": "react-native-image-crop-picker",
     "escapedName": "react-native-image-crop-picker",
-    "rawSpec": "0.19.1",
-    "saveSpec": null,
-    "fetchSpec": "0.19.1"
+    "rawSpec": "git+https://github.com/andmizi/react-native-image-crop-picker.git",
+    "saveSpec": "git+https://github.com/andmizi/react-native-image-crop-picker.git",
+    "fetchSpec": "https://github.com/andmizi/react-native-image-crop-picker.git",
+    "gitCommittish": null
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "http://registry.npm.taobao.org/react-native-image-crop-picker/download/react-native-image-crop-picker-0.19.1.tgz",
-  "_spec": "0.19.1",
+  "_resolved": "git+https://github.com/andmizi/react-native-image-crop-picker.git#f55ca035358888b40e4680d22bf500f2a65e3cab",
+  "_spec": "react-native-image-crop-picker@git+https://github.com/andmizi/react-native-image-crop-picker.git",
   "_where": "C:\\Users\\kimi\\Desktop\\work\\czb_rn\\czb_user_iPad",
   "author": {
     "name": "Ivan Pusic"
@@ -33,6 +33,8 @@
   "bugs": {
     "url": "https://github.com/ivpusic/react-native-image-crop-picker/issues"
   },
+  "bundleDependencies": false,
+  "deprecated": false,
   "description": "Select single or multiple images, with cropping option",
   "homepage": "https://github.com/ivpusic/react-native-image-crop-picker#readme",
   "keywords": [
