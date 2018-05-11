@@ -146,7 +146,7 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
         final PickerModule module = this;
 
         if (activity == null) {
-            promise.reject(E_ACTIVITY_DOES_NOT_EXIST, "Activity doesn't exist");
+            promise.reject(E_ACTIVITY_DOES_NOT_EXIST, "Activity 不存在，请重试");
             return;
         }
 
@@ -155,7 +155,7 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
             public Void call() throws Exception {
                 try {
                     File file = new File(module.getTmpDir(activity));
-                    if (!file.exists()) throw new Exception("File does not exist");
+                    if (!file.exists()) throw new Exception("文件不存在，请重试");
 
                     module.deleteRecursive(file);
                     promise.resolve(null);
@@ -172,7 +172,7 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
     @ReactMethod
     public void cleanSingle(final String pathToDelete, final Promise promise) {
         if (pathToDelete == null) {
-            promise.reject(E_ERROR_WHILE_CLEANING_FILES, "Cannot cleanup empty path");
+            promise.reject(E_ERROR_WHILE_CLEANING_FILES, "文件不存在，请重试");
             return;
         }
 
@@ -180,7 +180,7 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
         final PickerModule module = this;
 
         if (activity == null) {
-            promise.reject(E_ACTIVITY_DOES_NOT_EXIST, "Activity doesn't exist");
+            promise.reject(E_ACTIVITY_DOES_NOT_EXIST, "Activity 不存在，请重试");
             return;
         }
 
@@ -195,7 +195,7 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
                     }
 
                     File file = new File(path);
-                    if (!file.exists()) throw new Exception("File does not exist. Path: " + path);
+                    if (!file.exists()) throw new Exception("文件不存在，请重试" );
 
                     module.deleteRecursive(file);
                     promise.resolve(null);
@@ -238,7 +238,7 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
                         try {
                             callback.call();
                         } catch (Exception e) {
-                            promise.reject(E_CALLBACK_ERROR, "Unknown error", e);
+                            promise.reject(E_CALLBACK_ERROR, "发生错误，请重试", e);
                         }
                     }
 
@@ -253,7 +253,7 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
         try {
             callback.call();
         } catch (Exception e) {
-            promise.reject(E_CALLBACK_ERROR, "Unknown error", e);
+            promise.reject(E_CALLBACK_ERROR, "发生错误，请重试", e);
         }
     }
 
@@ -262,12 +262,12 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
         final Activity activity = getCurrentActivity();
 
         if (activity == null) {
-            promise.reject(E_ACTIVITY_DOES_NOT_EXIST, "Activity doesn't exist");
+            promise.reject(E_ACTIVITY_DOES_NOT_EXIST, "Activity 不存在，请重试");
             return;
         }
 
         if (!isCameraAvailable(activity)) {
-            promise.reject(E_CAMERA_IS_NOT_AVAILABLE, "Camera not available");
+            promise.reject(E_CAMERA_IS_NOT_AVAILABLE, "摄像头不可用，请重试");
             return;
         }
 
@@ -302,7 +302,7 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
             cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, mCameraCaptureURI);
 
             if (cameraIntent.resolveActivity(activity.getPackageManager()) == null) {
-                resultCollector.notifyProblem(E_CANNOT_LAUNCH_CAMERA, "Cannot launch camera");
+                resultCollector.notifyProblem(E_CANNOT_LAUNCH_CAMERA, "不能开启摄像头，请重试");
                 return;
             }
 
@@ -343,7 +343,7 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
         final Activity activity = getCurrentActivity();
 
         if (activity == null) {
-            promise.reject(E_ACTIVITY_DOES_NOT_EXIST, "Activity doesn't exist");
+            promise.reject(E_ACTIVITY_DOES_NOT_EXIST, "Activity 不存在，请重试");
             return;
         }
 
@@ -364,7 +364,7 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
         final Activity activity = getCurrentActivity();
 
         if (activity == null) {
-            promise.reject(E_ACTIVITY_DOES_NOT_EXIST, "Activity doesn't exist");
+            promise.reject(E_ACTIVITY_DOES_NOT_EXIST, "Activity 不存在，请重试");
             return;
         }
 
