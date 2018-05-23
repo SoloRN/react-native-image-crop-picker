@@ -146,7 +146,7 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
         final PickerModule module = this;
 
         if (activity == null) {
-            promise.reject(E_ACTIVITY_DOES_NOT_EXIST, "Activity 不存在，请重试");
+            promise.reject("Activity 不存在，请重试");
             return;
         }
 
@@ -161,7 +161,7 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
                     promise.resolve(null);
                 } catch (Exception ex) {
                     ex.printStackTrace();
-                    promise.reject(E_ERROR_WHILE_CLEANING_FILES, ex.getMessage());
+                    promise.reject( "必须授权存储权限，请到设置中打开");
                 }
 
                 return null;
@@ -172,7 +172,7 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
     @ReactMethod
     public void cleanSingle(final String pathToDelete, final Promise promise) {
         if (pathToDelete == null) {
-            promise.reject(E_ERROR_WHILE_CLEANING_FILES, "文件不存在，请重试");
+            promise.reject( "文件不存在，请重试");
             return;
         }
 
@@ -180,7 +180,7 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
         final PickerModule module = this;
 
         if (activity == null) {
-            promise.reject(E_ACTIVITY_DOES_NOT_EXIST, "Activity 不存在，请重试");
+            promise.reject("Activity 不存在，请重试");
             return;
         }
 
@@ -201,7 +201,7 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
                     promise.resolve(null);
                 } catch (Exception ex) {
                     ex.printStackTrace();
-                    promise.reject(E_ERROR_WHILE_CLEANING_FILES, ex.getMessage());
+                    promise.reject("发生错误，请重试" );
                 }
 
                 return null;
@@ -230,7 +230,7 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
 
                         for (int grantResult : grantResults) {
                             if (grantResult == PackageManager.PERMISSION_DENIED) {
-                                promise.reject(E_PERMISSIONS_MISSING, "必须授权相机权限，请到设置中打开");
+                                promise.reject("必须授权相机权限，请到设置中打开");
                                 return true;
                             }
                         }
@@ -238,7 +238,7 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
                         try {
                             callback.call();
                         } catch (Exception e) {
-                            promise.reject(E_CALLBACK_ERROR, "发生错误，请重试", e);
+                            promise.reject("发生错误，请重试");
                         }
                     }
 
@@ -253,7 +253,7 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
         try {
             callback.call();
         } catch (Exception e) {
-            promise.reject(E_CALLBACK_ERROR, "发生错误，请重试", e);
+            promise.reject("发生错误，请重试");
         }
     }
 
@@ -262,12 +262,12 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
         final Activity activity = getCurrentActivity();
 
         if (activity == null) {
-            promise.reject(E_ACTIVITY_DOES_NOT_EXIST, "Activity 不存在，请重试");
+            promise.reject("Activity 不存在，请重试");
             return;
         }
 
         if (!isCameraAvailable(activity)) {
-            promise.reject(E_CAMERA_IS_NOT_AVAILABLE, "摄像头不可用，请重试");
+            promise.reject( "摄像头不可用，请重试");
             return;
         }
 
@@ -343,7 +343,7 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
         final Activity activity = getCurrentActivity();
 
         if (activity == null) {
-            promise.reject(E_ACTIVITY_DOES_NOT_EXIST, "Activity 不存在，请重试");
+            promise.reject("Activity 不存在，请重试");
             return;
         }
 
@@ -364,7 +364,7 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
         final Activity activity = getCurrentActivity();
 
         if (activity == null) {
-            promise.reject(E_ACTIVITY_DOES_NOT_EXIST, "Activity 不存在，请重试");
+            promise.reject("Activity 不存在，请重试");
             return;
         }
 
